@@ -1,6 +1,7 @@
 package jenatry;
 
 import org.apache.jena.rdf.model.*;
+import org.apache.jena.riot.RDFDataMgr;
 import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
@@ -14,12 +15,26 @@ private static final String CHEESE_DATA_FILE = "C:\\work\\webtools\\apache-jena-
 
 public static void main (String[] args) {
 
+	boolean cheesey = true;
+	
+	if (cheesey) {
 	
 	Model m = ModelFactory.createDefaultModel();
 	FileManager.get().readModel(m, CHEESE_DATA_FILE);
 	showModelSize(m);
 	listCheeses(m);
+	} else {
+	
+	loadUni("c:\\work\\webtools\\data\\university.owl");
+	
+	}
     System.out.println("Hello from maven");
+}
+
+
+static void loadUni(String path) {
+	Model m = RDFDataMgr.loadModel(path);
+	m.addLiteral(null, null, false);
 }
 
  static void showModelSize( Model m ) {
