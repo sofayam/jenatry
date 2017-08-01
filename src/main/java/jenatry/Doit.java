@@ -15,7 +15,7 @@ private static final String CHEESE_DATA_FILE = "C:\\work\\webtools\\apache-jena-
 
 public static void main (String[] args) {
 
-	boolean cheesey = true;
+	boolean cheesey = false;
 	
 	if (cheesey) {
 	
@@ -25,7 +25,7 @@ public static void main (String[] args) {
 	listCheeses(m);
 	} else {
 	
-	loadUni("c:\\work\\webtools\\data\\university.owl");
+		Test1.doit();
 	
 	}
     System.out.println("Hello from maven");
