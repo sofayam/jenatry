@@ -17,10 +17,11 @@ import org.apache.jena.riot.RDFDataMgr;
 public class Test2 {
 	
 	static void doit() {
-		Model model = RDFDataMgr.loadModel("c:\\work\\webtools\\data\\university.owl");
+		Model model = RDFDataMgr.loadModel("c:\\work\\webtools\\data\\uni.ttl");
 	
 		String querystr = "PREFIX  uni:   <http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#>  " +
-							"SELECT ?lecturer ?module WHERE {?lecturer uni:teaches ?module} ";
+				          "PREFIX  :   <.>  " +
+						  "SELECT ?lecturer ?module ?name WHERE {{?lecturer uni:teaches ?module} {?lecturer uni:lastName ?name}} ";
 		Query query = QueryFactory.create(querystr);
 		QueryExecution qe = QueryExecutionFactory.create(query,model);
 		ResultSet results = qe.execSelect();
