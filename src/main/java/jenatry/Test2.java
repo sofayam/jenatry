@@ -1,6 +1,7 @@
 package jenatry;
 
 
+import java.io.InputStream;
 import java.net.URL;
 
 /*
@@ -14,17 +15,22 @@ import org.apache.jena.query.QueryFactory;
 import org.apache.jena.query.ResultSet;
 import org.apache.jena.query.ResultSetFormatter;
 import org.apache.jena.rdf.model.Model;
-
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.riot.RDFDataMgr;
 
 public class Test2 {
 	
 	static void doit() {
 		
-
-		URL u = Test2.class.getResource("/uni.ttl");
+	    Model model = ModelFactory.createDefaultModel();
 		
-		Model model = RDFDataMgr.loadModel(u.getFile()); // ("c:\\work\\webtools\\data\\uni.ttl");
+		InputStream s = Test2.class.getResourceAsStream("/uni.ttl");
+		
+		model.read(s,null,"TTL");
+
+		//URL u = Test2.class.getResource("/uni.ttl");
+		
+		//Model model = RDFDataMgr.loadModel(u.getFile()); // ("c:\\work\\webtools\\data\\uni.ttl");
 	
 		String querystr = "PREFIX  uni:   <http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#>  " +
 				          "PREFIX  :   <.>  " +

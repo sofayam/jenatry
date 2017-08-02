@@ -1,11 +1,15 @@
 package jenatry;
 
+import java.io.InputStream;
+import java.net.URL;
+
 /* 
  *  Printing stuff by hand and with the built in formatters
  * */
  
 
 import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
@@ -16,7 +20,14 @@ import org.apache.jena.riot.RDFDataMgr;
 public class Test1 {
 	
 	static void doit() {
-		Model m = RDFDataMgr.loadModel("c:\\work\\webtools\\data\\university.owl");
+		
+	    Model m = ModelFactory.createDefaultModel();
+		
+		InputStream s = Test2.class.getResourceAsStream("/university.owl");
+		
+		m.read(s,null,"RDF/XML");
+		
+		
 		StmtIterator iter = m.listStatements();
 		while (iter.hasNext()) {
 			Statement stmt = iter.nextStatement();

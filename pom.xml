@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>jenatry</groupId>
-	<artifactId>minimal-pom</artifactId>
+	<artifactId>jenatry</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -60,6 +60,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+
 	</build>
 
 	<dependencies>

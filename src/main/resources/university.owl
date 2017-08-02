@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#"
+     xml:base="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:uni="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#studies -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#studies">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#teaches -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#teaches">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#firstName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#firstName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#lastName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#lastName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#staffId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#staffId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#studentId -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#studentId">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CSMOdule -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CSMOdule">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#MathModule -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#MathModule">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Module"/>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person"/>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS101 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS101">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CSMOdule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS103 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS103">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CSMOdule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer"/>
+        <teaches rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M201"/>
+        <firstName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Henry</firstName>
+        <lastName rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bloggs</lastName>
+        <staffId rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">12233</staffId>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer"/>
+        <teaches rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M202"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M201 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M201">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#MathModule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M202 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M202">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#MathModule"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student"/>
+        <studies rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M201"/>
+        <studies rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#M202"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student"/>
+        <studies rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS101"/>
+        <studies rdf:resource="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CS103"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#CSMOdule"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Lecturer"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#MathModule"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#Student"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
