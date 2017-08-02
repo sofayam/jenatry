@@ -1,13 +1,6 @@
 package jenatry;
 
 import java.io.InputStream;
-import java.net.URL;
-
-/* 
- *  Printing stuff by hand and with the built in formatters
- * */
- 
-
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
@@ -15,8 +8,11 @@ import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
 import org.apache.jena.rdf.model.Statement;
 import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.riot.RDFDataMgr;
 
+/* 
+ *  Printing stuff by hand and with the built in formatters
+ * */
+ 
 public class Test1 {
 	
 	static void doit() {

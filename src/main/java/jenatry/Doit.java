@@ -1,17 +1,8 @@
 package jenatry;
 
 import java.io.InputStream;
-import java.net.URL;
-
-import org.apache.jena.graph.Graph;
-import org.apache.jena.query.Dataset;
 import org.apache.jena.rdf.model.*;
-import org.apache.jena.riot.Lang;
 import org.apache.jena.riot.RDFDataMgr;
-import org.apache.jena.sparql.core.DatasetGraph;
-import org.apache.jena.sparql.core.DatasetGraphFactory;
-import org.apache.jena.sparql.core.DatasetImpl;
-import org.apache.jena.util.FileManager;
 import org.apache.jena.vocabulary.RDF;
 import org.apache.jena.vocabulary.RDFS;
 
@@ -19,8 +10,6 @@ public class Doit {
 	
 	public static final String CHEESE_SCHEMA = "http://data.kasabi.com/dataset/cheese/schema/";
     public static final String CHEESE_DATA = "http://data.kasabi.com/dataset/cheese/";
-
-//private static final String CHEESE_DATA_FILE = "C:\\work\\webtools\\apache-jena-3.4.0\\src-examples\\jena-examples\\src\\main\\resources\\data\\cheeses-0.1.ttl";
 
 public static void main (String[] args) {
 
