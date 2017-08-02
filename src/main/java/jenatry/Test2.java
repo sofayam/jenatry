@@ -1,5 +1,8 @@
 package jenatry;
 
+
+import java.net.URL;
+
 /*
  *  Simple Sparql query
  */
@@ -17,7 +20,11 @@ import org.apache.jena.riot.RDFDataMgr;
 public class Test2 {
 	
 	static void doit() {
-		Model model = RDFDataMgr.loadModel("c:\\work\\webtools\\data\\uni.ttl");
+		
+
+		URL u = Test2.class.getResource("/uni.ttl");
+		
+		Model model = RDFDataMgr.loadModel(u.getFile()); // ("c:\\work\\webtools\\data\\uni.ttl");
 	
 		String querystr = "PREFIX  uni:   <http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#>  " +
 				          "PREFIX  :   <.>  " +

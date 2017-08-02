@@ -1,0 +1,79 @@
+@prefix :      <http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#> .
+@prefix uni:   <http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+uni:Lecturer2  a     uni:Lecturer , owl:NamedIndividual ;
+        uni:firstName  "Bernard" ;
+        uni:lastName   "Crippen" ;
+        uni:staffId    12234 ;
+        uni:teaches  uni:M202 .
+
+uni:MathModule  a        owl:Class ;
+        rdfs:subClassOf  uni:Module .
+
+uni:teaches  a       owl:ObjectProperty ;
+        rdfs:domain  uni:Lecturer ;
+        rdfs:range   uni:Module .
+
+uni:studentId  a     owl:DatatypeProperty ;
+        rdfs:domain  uni:Student ;
+        rdfs:range   xsd:integer .
+
+uni:Lecturer1  a       uni:Lecturer , owl:NamedIndividual ;
+        uni:firstName  "Henry" ;
+        uni:lastName   "Bloggs" ;
+        uni:staffId    12233 ;
+        uni:teaches    uni:M201 .
+
+uni:CS101  a    uni:CSMOdule , owl:NamedIndividual .
+
+uni:M202  a     uni:MathModule , owl:NamedIndividual .
+
+uni:studies  a       owl:ObjectProperty ;
+        rdfs:domain  uni:Student ;
+        rdfs:range   uni:Module .
+
+uni:CSMOdule  a          owl:Class ;
+        rdfs:subClassOf  uni:Module .
+
+uni:Student  a           owl:Class ;
+        rdfs:subClassOf  uni:Person .
+
+uni:Lecturer  a          owl:Class ;
+        rdfs:subClassOf  uni:Person .
+
+[ a            owl:AllDisjointClasses ;
+  owl:members  ( uni:CSMOdule uni:Lecturer uni:MathModule uni:Student )
+] .
+
+uni:M201  a     uni:MathModule , owl:NamedIndividual .
+
+uni:Module  a   owl:Class .
+
+<http://www.semanticweb.org/anm2fr/ontologies/2017/6/uni>
+        a       owl:Ontology .
+
+uni:firstName  a     owl:DatatypeProperty ;
+        rdfs:domain  uni:Person ;
+        rdfs:range   xsd:string .
+
+uni:Student2  a      uni:Student , owl:NamedIndividual ;
+        uni:studies  uni:CS103 , uni:CS101 .
+
+uni:Person  a   owl:Class .
+
+uni:Student1  a      uni:Student , owl:NamedIndividual ;
+        uni:studies  uni:M202 , uni:M201 .
+
+uni:CS103  a    uni:CSMOdule , owl:NamedIndividual .
+
+uni:staffId  a       owl:DatatypeProperty ;
+        rdfs:domain  uni:Lecturer ;
+        rdfs:range   xsd:integer .
+
+uni:lastName  a      owl:DatatypeProperty ;
+        rdfs:domain  uni:Person ;
+        rdfs:range   xsd:string .
