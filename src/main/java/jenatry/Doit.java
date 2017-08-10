@@ -16,13 +16,14 @@ public static void main (String[] args) {
 	boolean cheesey = true;
 	
 	if (cheesey) {
-		Test3.doit();
+		Test4.doit();
 
 	} else {
 		doit();
 		Test1.doit();
 		Test2.doit();
 		Test3.doit();
+		Test4.doit();
 	}
 
 }

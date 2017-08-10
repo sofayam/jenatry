@@ -1,0 +1,460 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#"
+     xml:base="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto">
+        <rdfs:comment>Ontology to show inferring mood from heart rate</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#causedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#causedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#characterizesA -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#characterizesA">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasMood"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasMood -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasMood">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasReminder -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasReminder">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMood">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#causedBy"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMood"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMoodPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMoodPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHRPerson"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMoodPerson"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallBossReminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallBossReminder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedReminders"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#SetReminder"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#RocketRaccoon"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallMomReminder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallMomReminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallMomReminder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedReminders"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#SetReminder"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#StarLord"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DoneReminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DoneReminder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DueReminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DueReminder">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMoodPerson"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DukeKahanamoku -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DukeKahanamoku">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Gamora -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Gamora">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMood">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#causedBy"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMoodPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMoodPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHRPerson"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Groot -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Groot">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHRPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHRPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHRPerson"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#JeffSpicoli -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#JeffSpicoli">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHRPerson -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHRPerson">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                        <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#characterizesA"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedReminders -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedReminders">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasMood"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#RocketRaccoon -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#RocketRaccoon">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasReminder"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallBossReminder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#SetReminder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#SetReminder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#StarLord -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#StarLord">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasReminder"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallMomReminder"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+
