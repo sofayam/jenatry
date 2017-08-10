@@ -2,21 +2,15 @@ package jenatry;
 
 
 
-import java.io.BufferedReader;
-import java.io.InputStream;
 
-import java.util.Iterator;
+import java.io.InputStream;
 
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
-import org.apache.jena.rdf.model.InfModel;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.reasoner.Reasoner;
 import org.apache.jena.reasoner.ReasonerRegistry;
-import org.apache.jena.reasoner.ValidityReport;
-import org.apache.jena.reasoner.ValidityReport.Report;
 import org.apache.jena.util.iterator.ExtendedIterator;
 
 

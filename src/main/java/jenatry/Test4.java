@@ -2,7 +2,6 @@ package jenatry;
 
 
 
-import java.io.BufferedReader;
 import java.io.InputStream;
 
 import java.util.Iterator;
@@ -10,13 +9,12 @@ import java.util.Iterator;
 import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
-import org.apache.jena.ontology.OntModelSpec;
+
 import org.apache.jena.ontology.OntResource;
 import org.apache.jena.rdf.model.InfModel;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.reasoner.Reasoner;
-import org.apache.jena.reasoner.ReasonerRegistry;
+
 import org.apache.jena.reasoner.ValidityReport;
 import org.apache.jena.reasoner.ValidityReport.Report;
 import org.apache.jena.util.iterator.ExtendedIterator;
@@ -79,9 +77,26 @@ public class Test4 {
 
 	    }
 
-
+	    printSubclasses(model, "Reminder");
 		
 	}
+	
+	public static void printSubclasses(OntModel model, String className) {
+		
+		String fullName = "http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#" + className;
+		OntClass ontClass = model.getOntClass(fullName);
+		
+		ExtendedIterator<OntClass> sci = ontClass.listSubClasses();
+		
+		System.out.println("************ subclasses of " + className);
+		
+		while (sci.hasNext()) {
+			OntClass found = sci.next();
+			System.out.println(found.toString());
+		}
+	}
+	
+	
 	public static void main(String[] args) {
 		doit();
 	}

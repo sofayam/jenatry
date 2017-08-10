@@ -16,7 +16,7 @@ public static void main (String[] args) {
 	boolean cheesey = true;
 	
 	if (cheesey) {
-		Test4.doit();
+		Test5.doit();
 
 	} else {
 		doit();
@@ -24,6 +24,7 @@ public static void main (String[] args) {
 		Test2.doit();
 		Test3.doit();
 		Test4.doit();
+		Test5.doit();
 	}
 
 }
