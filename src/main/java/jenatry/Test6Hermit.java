@@ -32,9 +32,9 @@ public class Test6Hermit {
         
         OWLDataFactory dataFactory=m.getOWLDataFactory();
         
-        OWLClass person = dataFactory.getOWLClass(makeIRI("DueReminder"));
+        OWLClass dueReminder = dataFactory.getOWLClass(makeIRI("DueReminder"));
         
-        NodeSet<OWLClass> subs = hermit.getSubClasses(person, false);
+        NodeSet<OWLClass> subs = hermit.getSubClasses(dueReminder, false);
         
         for (Node<OWLClass> equivalents : subs.getNodes()) {
         	  for (OWLClass equivalent : equivalents) {
