@@ -42,6 +42,11 @@ public class Test6Hermit {
               }
               System.out.println();
         }
+        // Now try 
+        // Adding something to the ontology
+        // retriggering the reasoner
+        // finding new subclasses
+        
 		} catch (Exception e) { System.out.println("oops"); }
 	}
 	

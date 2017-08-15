@@ -1,6 +1,8 @@
 package jenatry;
 
-
+/* If you try to run this program it will hang (in all machines)
+ * and max out your ram (on Windows)
+ */
 
 
 import java.io.InputStream;
