@@ -1,0 +1,315 @@
+@prefix : <http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto> .
+
+<http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto> rdf:type owl:Ontology ;
+                                                                                     rdfs:comment "Ontology to show inferring mood from heart rate" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#causedBy
+:causedBy rdf:type owl:ObjectProperty ;
+          rdfs:domain :Mood ;
+          rdfs:range :HeartRate .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#characterizesA
+:characterizesA rdf:type owl:ObjectProperty ;
+                owl:inverseOf :hasMood .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasHR
+:hasHR rdf:type owl:ObjectProperty ;
+       rdfs:domain :Person ;
+       rdfs:range :HeartRate .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasMood
+:hasMood rdf:type owl:ObjectProperty ;
+         rdfs:domain :Person ;
+         rdfs:range :Mood .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#hasReminder
+:hasReminder rdf:type owl:ObjectProperty ;
+             rdfs:domain :Person ;
+             rdfs:range :Reminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#setBy
+:setBy rdf:type owl:ObjectProperty ;
+       rdfs:domain :Reminder ;
+       rdfs:range :Person .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMood
+:BadMood rdf:type owl:Class ;
+         owl:equivalentClass [ owl:intersectionOf ( :Mood
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty :causedBy ;
+                                                      owl:allValuesFrom :HighHR
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ;
+         owl:disjointWith :GoodMood .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BadMoodPerson
+:BadMoodPerson rdf:type owl:Class ;
+               owl:equivalentClass [ owl:intersectionOf ( :HighHRPerson
+                                                          :Person
+                                                        ) ;
+                                     rdf:type owl:Class
+                                   ] ;
+               owl:disjointWith :GoodMoodPerson .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallBossReminder
+:CallBossReminder rdf:type owl:Class ;
+                  rdfs:subClassOf :NamedReminders ,
+                                  :SetReminder ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :setBy ;
+                                    owl:allValuesFrom :RocketRaccoon
+                                  ] ;
+                  owl:disjointWith :CallMomReminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#CallMomReminder
+:CallMomReminder rdf:type owl:Class ;
+                 rdfs:subClassOf :NamedReminders ,
+                                 :SetReminder ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :setBy ;
+                                   owl:allValuesFrom :StarLord
+                                 ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DoneReminder
+:DoneReminder rdf:type owl:Class ;
+              rdfs:subClassOf :Reminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DueReminder
+:DueReminder rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Reminder
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :setBy ;
+                                                          owl:allValuesFrom :GoodMoodPerson
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#DukeKahanamoku
+:DukeKahanamoku rdf:type owl:Class ;
+                rdfs:subClassOf :NamedPersons ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasHR ;
+                                  owl:allValuesFrom :LowHR
+                                ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Gamora
+:Gamora rdf:type owl:Class ;
+        rdfs:subClassOf :NamedPersons ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasHR ;
+                          owl:allValuesFrom :HighHR
+                        ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMood
+:GoodMood rdf:type owl:Class ;
+          owl:equivalentClass [ owl:intersectionOf ( :Mood
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :causedBy ;
+                                                       owl:allValuesFrom :LowHR
+                                                     ]
+                                                   ) ;
+                                rdf:type owl:Class
+                              ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#GoodMoodPerson
+:GoodMoodPerson rdf:type owl:Class ;
+                owl:equivalentClass [ owl:intersectionOf ( :LowHRPerson
+                                                           :Person
+                                                         ) ;
+                                      rdf:type owl:Class
+                                    ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Groot
+:Groot rdf:type owl:Class ;
+       rdfs:subClassOf :NamedPersons ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasHR ;
+                         owl:allValuesFrom :LowHR
+                       ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HeartRate
+:HeartRate rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHR
+:HighHR rdf:type owl:Class ;
+        rdfs:subClassOf :HeartRate ;
+        owl:disjointWith :LowHR .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#HighHRPerson
+:HighHRPerson rdf:type owl:Class ;
+              owl:equivalentClass [ owl:intersectionOf ( :Person
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty :hasHR ;
+                                                           owl:allValuesFrom :HighHR
+                                                         ]
+                                                       ) ;
+                                    rdf:type owl:Class
+                                  ] ;
+              owl:disjointWith :LowHRPerson .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#JeffSpicoli
+:JeffSpicoli rdf:type owl:Class ;
+             rdfs:subClassOf :NamedPersons ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :hasHR ;
+                               owl:allValuesFrom :LowHR
+                             ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHR
+:LowHR rdf:type owl:Class ;
+       rdfs:subClassOf :HeartRate .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#LowHRPerson
+:LowHRPerson rdf:type owl:Class ;
+             owl:equivalentClass [ owl:intersectionOf ( :Person
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :hasHR ;
+                                                          owl:allValuesFrom :LowHR
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Mood
+:Mood rdf:type owl:Class ;
+      rdfs:subClassOf [ rdf:type owl:Restriction ;
+                        owl:onProperty :characterizesA ;
+                        owl:someValuesFrom :Person
+                      ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedPersons
+:NamedPersons rdf:type owl:Class ;
+              rdfs:subClassOf :Person .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#NamedReminders
+:NamedReminders rdf:type owl:Class ;
+                rdfs:subClassOf :Reminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Person
+:Person rdf:type owl:Class ;
+        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasHR ;
+                          owl:someValuesFrom :HeartRate
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasMood ;
+                          owl:someValuesFrom :Mood
+                        ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Reminder
+:Reminder rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#RocketRaccoon
+:RocketRaccoon rdf:type owl:Class ;
+               rdfs:subClassOf :NamedPersons ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasHR ;
+                                 owl:allValuesFrom :HighHR
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasReminder ;
+                                 owl:allValuesFrom :CallBossReminder
+                               ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#SetReminder
+:SetReminder rdf:type owl:Class ;
+             rdfs:subClassOf :Reminder ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty :setBy ;
+                               owl:someValuesFrom :Person
+                             ] .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#StarLord
+:StarLord rdf:type owl:Class ;
+          rdfs:subClassOf :NamedPersons ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasHR ;
+                            owl:allValuesFrom :LowHR
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasReminder ;
+                            owl:allValuesFrom :CallMomReminder
+                          ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#Bill
+:Bill rdf:type owl:NamedIndividual ,
+               :NamedPersons ;
+      :hasHR :lowHR ;
+      :hasReminder :BillsCallBossReminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#BillsCallBossReminder
+:BillsCallBossReminder rdf:type owl:NamedIndividual ,
+                                :CallBossReminder .
+
+
+###  http://www.semanticweb.org/antonioskaratzoglou/ontologies/2017/7/mood_person_onto#lowHR
+:lowHR rdf:type owl:NamedIndividual ,
+                :LowHR .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :HeartRate
+                :Mood
+                :Person
+              )
+] .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi
